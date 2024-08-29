@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantsCard";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
-
+import { Link } from "react-router-dom";
+import useStatusOnline from "../utilis/useStatusOnline";
 // import Shimmer from "./Shimmer"
 
 // let restList = [
@@ -255,8 +255,11 @@ const Body = () => {
         setFilteredRestaturants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
     };
 
+    const Onlinestatus = useStatusOnline();
 
-
+    if(Onlinestatus === "offline"){
+        <h1>YOU SEEMS TO BE OFFLINE PLEASE CHECK YOUR INTERNET CONNECTION !!!!!</h1>
+    }
 
 
     // listofRestaturants.length === 0 ? (
@@ -298,10 +301,10 @@ const Body = () => {
         {/* <div className="search">search</div> */}
         <div className="res-container">
             {FilteredRestaturants.map((restaurant) => (
-               <Link key={restaurant.info.id}
-               to={"/restaurants/"+restaurant.info.id}>
-                <RestaurantCard  resData={restaurant} />
-                </Link> 
+                <Link key={restaurant.info.id}
+                    to={"/restaurants/" + restaurant.info.id}>
+                    <RestaurantCard resData={restaurant} />
+                </Link>
             ))}
         </div>
     </div>
