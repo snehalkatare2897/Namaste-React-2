@@ -51,6 +51,14 @@ const RestaurantCard = (props) => {
         </div>
     )
 }
+
+// const withPromotedRestaurant = (RestaurantCard)
+// {
+//     return(){
+//         return()
+//     }
+
+// }
 // export default RestaurantCard
 
 

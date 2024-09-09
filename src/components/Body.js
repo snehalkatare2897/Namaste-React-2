@@ -233,8 +233,6 @@ import useStatusOnline from "../utilis/useStatusOnline";
 //         },
 //     }]
 
-
-
 const Body = () => {
     //usestate Hooks
     //local state variable -super power variable
@@ -242,6 +240,7 @@ const Body = () => {
     const [FilteredRestaturants, setFilteredRestaturants] = useState([]);
     const [searchText, SetsearchText] = useState("")
 
+    console.log("listofRestaturants",listofRestaturants)
     useEffect(() => {
         fetchData();
     }, [])
@@ -270,7 +269,7 @@ const Body = () => {
             <div className="m-4 p-4">
                 <input
                     type="text"
-                    className="border border-solid border-black"
+                    className="border border-solid border-black bgblu"
                     value={searchText}
                     onChange={(e) => {
                         SetsearchText(e.target.value)
